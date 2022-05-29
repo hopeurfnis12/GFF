@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/enemies/flying creature/fly_anim_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://entity/enemies/FlyingEnemy/FlyingEnemyFMS.gd" type="Script" id=3]
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=4]
-[ext_resource path="res://entity/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://entity/Hitbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entity/enemies/FlyingEnemy/FlyingEnemy.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=10]
@@ -52,9 +52,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=16]
-radius = 2.00002
-height = 1.99996
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 2.0
+height = 2.0
 
 [sub_resource type="CapsuleShape2D" id=17]
 radius = 2.0
@@ -180,7 +180,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "fly"
-length = 0.4
+length = 0.39
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -271,19 +271,15 @@ scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 5 )
 animation = "fly"
 
-[node name="Hitbox" type="Area2D" parent="." index="1"]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource( 5 )
-knockback_force = 150
+[node name="Hitbox" parent="." index="1" instance=ExtResource( 5 )]
 
 [node name="FlyingEnemyCollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, 1 )
+position = Vector2( 0.487, 0 )
 rotation = 1.57079
-shape = SubResource( 16 )
+shape = SubResource( 18 )
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, 1 )
+position = Vector2( 0.49, 0 )
 rotation = 1.5708
 shape = SubResource( 17 )
 

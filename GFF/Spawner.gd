@@ -4,8 +4,7 @@ const MIN_SPAWN_TIME = 3
 
 var preloadedEnemies := [
 	preload("res://entity/enemies/FlyingEnemy/FlyingEnemy.tscn"),
-	preload("res://entity/enemies/FlyingEnemy/FlyingEnemy.tscn"),
-	preload("res://entity/enemies/FlyingEnemy/FlyingEnemy.tscn")
+	preload("res://entity/enemies/Goblin/Goblin.tscn")
 ]
 
 onready var spawnTimer := $SpawnTimer

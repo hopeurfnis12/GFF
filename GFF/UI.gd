@@ -18,8 +18,7 @@ func _update_health_bar(new_value: int) -> void:
 	new_value, 0.5, Tween.TRANS_QUINT, Tween.EASE_OUT)
 	
 	__ = health_bar_tween.start()
-
-
-func _on_Player_hp_changed(new_hp: int) -> void:
+	
+func _on_Player_hp_changed(new_hp: int):
 	var new_health: int = int((100 - MIN_HEALTH) * float(new_hp) / max_hp) + MIN_HEALTH
 	_update_health_bar(new_health)

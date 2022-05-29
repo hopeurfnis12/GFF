@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_run_spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" type="Texture" id=5]
-[ext_resource path="res://entity/heroes/hero_knight/Player.gd" type="Script" id=6]
+[ext_resource path="res://entity/heroes/hero_knight/Knight.gd" type="Script" id=6]
 [ext_resource path="res://entity/heroes/hero_knight/FiniteStateMachine.gd" type="Script" id=7]
 [ext_resource path="res://entity/Hitbox.gd" type="Script" id=8]
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=9]
@@ -268,7 +268,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=15]
 resource_name = "idle"
-length = 0.6
+length = 0.59
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -297,7 +297,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=29]
 resource_name = "move"
-length = 0.6
+length = 0.59
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -485,10 +485,11 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Knight" instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 6 )
+hp = 4
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( 0, -1 )
