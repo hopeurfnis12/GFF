@@ -7,6 +7,7 @@ var state: int = -1 setget set_state
 
 onready var parent: Character = get_parent()
 onready var animation_player: AnimationPlayer = parent.get_node("AnimationPlayer")
+onready var animation_hurt: AnimationPlayer = parent.get_node("AnimationHurt")
 
 func _physics_process(delta: float) -> void:
 	if state != -1:

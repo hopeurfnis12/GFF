@@ -21,10 +21,10 @@ func _state_logic(_delta: float) -> void:
 func _get_transition() -> int:
 	match state:
 		states.idle:
-			if parent.distance_to_player > parent.MAX_DISTANCE_TO_PLAYER or parent.distance_to_player < parent.MIN_DISTANCE_TO_PLAYER:
+			if parent.distance_to_player > parent.MAX_DISTANCE_TO_PLAYER:
 				return states.move
 		states.move:
-			if parent.distance_to_player < parent.MAX_DISTANCE_TO_PLAYER and parent.distance_to_player > parent.MIN_DISTANCE_TO_PLAYER:
+			if parent.distance_to_player < parent.MAX_DISTANCE_TO_PLAYER:
 				return states.idle
 		states.hurt:
 			if not animation_player.is_playing():
@@ -40,4 +40,5 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.hurt:
 			animation_player.play("hurt")
 		states.dead:
+			Global.score += 3
 			animation_player.play("dead")

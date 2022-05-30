@@ -1,0 +1,130 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://ui/fonts/Nunito-Bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/fonts/Texturina-10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/fonts/Texturina-20.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="TheBest" type="Label" parent="."]
+anchor_left = 0.36
+anchor_top = 0.272
+anchor_right = 0.64
+anchor_bottom = 0.376
+custom_fonts/font = ExtResource( 4 )
+text = "The best: 00000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.39125
+anchor_top = 0.432
+anchor_right = 0.60875
+anchor_bottom = 0.504
+custom_fonts/font = ExtResource( 2 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SettingButton" type="Button" parent="."]
+anchor_left = 0.39125
+anchor_top = 0.552
+anchor_right = 0.60875
+anchor_bottom = 0.624
+custom_fonts/font = ExtResource( 2 )
+text = "Setting"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuitButton" type="Button" parent="."]
+anchor_left = 0.39125
+anchor_top = 0.672
+anchor_right = 0.60875
+anchor_bottom = 0.744
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Settings" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Info" type="Panel" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -69.5
+margin_right = 88.0
+margin_bottom = 69.5
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Settings/Info"]
+anchor_left = 0.0994318
+anchor_top = 0.129496
+anchor_right = 0.900568
+anchor_bottom = 0.568345
+margin_top = 9.53674e-07
+custom_fonts/font = ExtResource( 3 )
+text = "W, A, S, D - movement
+Mouse Right Click - attack
+ESC - pause"
+align = 1
+
+[node name="BackButton" type="Button" parent="Settings/Info"]
+anchor_left = 0.295455
+anchor_top = 0.715827
+anchor_right = 0.704545
+anchor_bottom = 0.845324
+margin_left = 3.8147e-06
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="SettingButton" to="." method="_on_SettingButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Settings/Info/BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://entity/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" type="Texture" id=2]
@@ -34,6 +34,22 @@ region = Rect2( 64, 0, 16, 16 )
 atlas = ExtResource( 5 )
 region = Rect2( 80, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 9 )
+region = Rect2( 48, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 16 )
@@ -58,22 +74,6 @@ region = Rect2( 64, 0, 16, 16 )
 atlas = ExtResource( 4 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 9 )
-region = Rect2( 48, 0, 16, 16 )
-
 [sub_resource type="SpriteFrames" id=28]
 animations = [ {
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
@@ -81,14 +81,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "move",
 "speed": 5.0
 } ]
 
@@ -223,48 +223,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=40]
-resource_name = "hurt"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true, false, true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 0.490196 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=15]
 resource_name = "idle"
@@ -381,7 +339,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=32]
 resource_name = "attack"
-length = 0.6
+length = 0.3
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("..:rotation_degrees")
@@ -390,10 +348,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.35, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.14 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 225.0, 225.0, 0.0 ]
+"values": [ 0.0, 270.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../../SlashSprite:visible")
@@ -402,7 +360,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.05, 0.26 ),
+"times": PoolRealArray( 0.03, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -414,7 +372,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.075, 0.14, 0.2 ),
+"times": PoolRealArray( 0.03, 0.09, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -443,10 +401,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.14 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 225.0, 0.0 ]
+"values": [ 270.0, 0.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../../SlashSprite:visible")
@@ -455,7 +413,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.03, 0.25 ),
+"times": PoolRealArray( 0.03, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -467,7 +425,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.03, 0.11, 0.19 ),
+"times": PoolRealArray( 0.03, 0.09, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -486,10 +444,13 @@ tracks/3/keys = {
 }
 
 [node name="Knight" instance=ExtResource( 1 )]
+scale = Vector2( 1.2, 1.2 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 6 )
-hp = 4
+hp = 8
+accerelation = 18
+max_speed = 32
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( 0, -1 )
@@ -498,20 +459,17 @@ animation = "idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 1, -1.19209e-07 )
-scale = Vector2( 1.80562, 1.80225 )
+scale = Vector2( 1.632, 1.596 )
 shape = SubResource( 41 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 14 )
 anims/dead = SubResource( 39 )
-anims/hurt = SubResource( 40 )
 anims/idle = SubResource( 15 )
 anims/move = SubResource( 29 )
 
-[node name="FiniteStateMachine" parent="." index="3"]
-script = ExtResource( 7 )
-
 [node name="Sword" type="Node2D" parent="." index="4"]
+scale = Vector2( 1.1, 1.1 )
 
 [node name="Node2D" type="Node2D" parent="Sword" index="0"]
 
@@ -521,10 +479,11 @@ rotation = -1.5708
 texture = ExtResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="Sword/Node2D/SwordSprite" index="0"]
-collision_layer = 0
-collision_mask = 4
+collision_layer = 8
+collision_mask = 12
 script = ExtResource( 8 )
-knockback_force = 200
+damage = 2
+knockback_force = 300
 
 [node name="SwordCollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox" index="0"]
 rotation = 0.785397
@@ -545,5 +504,14 @@ anims/RESET = SubResource( 34 )
 anims/attack = SubResource( 32 )
 anims/attack2 = SubResource( 42 )
 
-[node name="InvincibleTimer" parent="." index="5"]
+[node name="FiniteStateMachine" parent="." index="5"]
+script = ExtResource( 7 )
+
+[node name="AttackTimer" type="Timer" parent="." index="6"]
+wait_time = 0.2
+one_shot = true
+
+[node name="InvincibleTimer" parent="." index="7"]
 wait_time = 1.1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

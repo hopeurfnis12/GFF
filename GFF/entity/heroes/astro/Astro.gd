@@ -4,6 +4,7 @@ onready var blaster: Node2D = get_node("Blaster")
 onready var blaster_animation: AnimationPlayer = blaster.get_node("AnimationBlaster")
 onready var attack_timer = $AttackTimer
 
+
 var BULLET_SCENE = preload("res://entity/heroes/astro/Bullet.tscn")
 
 var direction: Vector2 = Vector2.ZERO
@@ -24,24 +25,28 @@ func _process(_delta: float) -> void:
 
 
 func get_input() -> void:
-	mov_direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_down"):
-		mov_direction += Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):
-		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
-		mov_direction += Vector2.RIGHT
-	if Input.is_action_pressed("ui_up"):
-		mov_direction += Vector2.UP
-	
-	if Input.is_action_just_pressed("ui_attack"):
-		if attack_timer.is_stopped():
-			shoot()
-			attack_timer.start()
-
+	if self.visible == true:
+		mov_direction = Vector2.ZERO
+		if Input.is_action_pressed("ui_down"):
+			mov_direction += Vector2.DOWN
+		if Input.is_action_pressed("ui_left"):
+			mov_direction += Vector2.LEFT
+		if Input.is_action_pressed("ui_right"):
+			mov_direction += Vector2.RIGHT
+		if Input.is_action_pressed("ui_up"):
+			mov_direction += Vector2.UP
+		
+		if Input.is_action_just_pressed("ui_attack"):
+			if attack_timer.is_stopped():
+				shoot()
+				blaster_animation.play("attack")
+				attack_timer.start()
+	else: mov_direction = Vector2.ZERO
 
 func shoot() -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	var bullet: Area2D = BULLET_SCENE.instance()
 	get_tree().current_scene.add_child(bullet)
-	bullet.launch(global_position, mouse_direction, 400)
+	var bullet_animation = bullet.get_node("AnimationPlayer")
+	bullet_animation.play("launch")
+	bullet.launch(blaster.global_position, mouse_direction, 300)
