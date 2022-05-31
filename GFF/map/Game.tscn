@@ -28,6 +28,7 @@ position = Vector2( 86, 58 )
 scale = Vector2( 1.2, 1.2 )
 current = true
 smoothing_enabled = true
+smoothing_speed = 10.0
 
 [connection signal="hide" from="Player" to="UI" method="_on_Player_hide"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
