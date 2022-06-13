@@ -1,22 +1,192 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ui/fonts/Nunito-Bold.tres" type="DynamicFont" id=2]
-[ext_resource path="res://ui/fonts/Texturina-10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/fonts/Texturina-7.tres" type="DynamicFont" id=3]
 [ext_resource path="res://ui/fonts/Texturina-20.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/astro/pixil-idle-3.png" type="Texture" id=5]
+[ext_resource path="res://assets/astro/pixil-idle-1.png" type="Texture" id=6]
+[ext_resource path="res://assets/astro/pixil-idle-2.png" type="Texture" id=7]
+[ext_resource path="res://assets/astro/pixil-idle-0.png" type="Texture" id=8]
+[ext_resource path="res://assets/astro/blaster.png" type="Texture" id=9]
+[ext_resource path="res://ui/fonts/Texturina-10.tres" type="DynamicFont" id=10]
+[ext_resource path="res://CharacterSelect.gd" type="Script" id=11]
+[ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/knight_idle_spritesheet.png" type="Texture" id=13]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 0.392157 )
-
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0, 0, 0, 0.784314 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.34902, 0.368627, 0.647059, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knight/Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "default" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Knight/Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 0.59
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knight/Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "default" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Knight/Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 13 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 13 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 13 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 13 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.34902, 0.368627, 0.647059, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSelect/Astro/Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "default" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSelect/Astro/Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "idle"
+length = 0.79
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSelect/Astro/Node2D/AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "default" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSelect/Astro/Node2D/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -30,6 +200,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TheBest" type="Label" parent="."]
 anchor_left = 0.36
@@ -61,6 +234,7 @@ anchor_top = 0.552
 anchor_right = 0.60875
 anchor_bottom = 0.624
 custom_fonts/font = ExtResource( 2 )
+disabled = true
 text = "Setting"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -77,54 +251,147 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Settings" type="Panel" parent="."]
-visible = false
-anchor_right = 1.0
+[node name="Info" type="Panel" parent="."]
+anchor_top = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Info" type="Panel" parent="Settings"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -88.0
-margin_top = -69.5
-margin_right = 88.0
-margin_bottom = 69.5
+margin_left = 6.0
+margin_top = -64.0
+margin_right = 118.0
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="Settings/Info"]
-anchor_left = 0.0994318
-anchor_top = 0.129496
-anchor_right = 0.900568
-anchor_bottom = 0.568345
-margin_top = 9.53674e-07
+[node name="Label" type="Label" parent="Info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 3 )
 text = "W, A, S, D - movement
+Move mouse to aim
 Mouse Right Click - attack
 ESC - pause"
 align = 1
-
-[node name="BackButton" type="Button" parent="Settings/Info"]
-anchor_left = 0.295455
-anchor_top = 0.715827
-anchor_right = 0.704545
-anchor_bottom = 0.845324
-margin_left = 3.8147e-06
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
+valign = 1
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_lock_": true
 }
 
+[node name="CharacterSelect" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Panel" parent="CharacterSelect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Knight" type="Panel" parent="CharacterSelect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -88.0
+margin_right = -33.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Knight" type="Button" parent="CharacterSelect/Knight"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( -344, -64 )
+custom_fonts/font = ExtResource( 10 )
+text = "Knight"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterSelect/Knight"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )
+
+[node name="Node2D" type="Node2D" parent="CharacterSelect/Knight"]
+position = Vector2( 55, 51 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSelect/Knight/Node2D"]
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
+frames = SubResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="CharacterSelect/Knight/Node2D"]
+position = Vector2( -16, -5 )
+scale = Vector2( -3, 3 )
+z_index = 1
+texture = ExtResource( 12 )
+
+[node name="Astro" type="Panel" parent="CharacterSelect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 33.0
+margin_top = -88.0
+margin_right = 145.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Astro" type="Button" parent="CharacterSelect/Astro"]
+margin_left = 24.0
+margin_top = 104.0
+margin_right = 88.0
+margin_bottom = 126.0
+rect_pivot_offset = Vector2( -344, -64 )
+custom_fonts/font = ExtResource( 10 )
+text = "Astro"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterSelect/Astro"]
+root_node = NodePath("../../..")
+anims/RESET = SubResource( 9 )
+anims/idle = SubResource( 10 )
+
+[node name="Node2D" type="Node2D" parent="CharacterSelect/Astro"]
+position = Vector2( 55, 51 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSelect/Astro/Node2D"]
+scale = Vector2( 2, 2 )
+z_index = 1
+frames = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="CharacterSelect/Astro/Node2D"]
+position = Vector2( 24, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="BackButton" type="Button" parent="CharacterSelect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -51.0
+margin_right = 28.0
+margin_bottom = -29.0
+custom_fonts/font = ExtResource( 10 )
+text = "Back"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="SettingButton" to="." method="_on_SettingButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="Settings/Info/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="mouse_entered" from="CharacterSelect/Knight/Knight" to="CharacterSelect" method="_on_Knight_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterSelect/Knight/Knight" to="CharacterSelect" method="_on_Knight_mouse_exited"]
+[connection signal="pressed" from="CharacterSelect/Knight/Knight" to="CharacterSelect" method="_on_Knight_pressed"]
+[connection signal="mouse_entered" from="CharacterSelect/Astro/Astro" to="CharacterSelect" method="_on_Astro_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterSelect/Astro/Astro" to="CharacterSelect" method="_on_Astro_mouse_exited"]
+[connection signal="pressed" from="CharacterSelect/Astro/Astro" to="CharacterSelect" method="_on_Astro_pressed"]
+[connection signal="pressed" from="CharacterSelect/BackButton" to="CharacterSelect" method="_on_BackButton_pressed"]

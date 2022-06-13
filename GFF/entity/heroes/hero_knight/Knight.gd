@@ -44,6 +44,7 @@ func get_input() -> void:
 					first_attack = false
 					sword_animation.play("attack2")
 				attack_timer.start()
+	else: mov_direction = Vector2.ZERO
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

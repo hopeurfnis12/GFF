@@ -1,7 +1,5 @@
 extends Control
 
-onready var pause: Control = get_node("Pause")
-
 const SAVE_FILE_PATH = "user://savedata.save"
 
 var highscore = 0

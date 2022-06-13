@@ -35,14 +35,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "move",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "dead",
 "speed": 5.0
 } ]
 
@@ -307,10 +307,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -420,6 +420,3 @@ script = ExtResource( 4 )
 [node name="AttackTimer" type="Timer" parent="." index="6"]
 wait_time = 0.3
 one_shot = true
-
-[node name="InvincibleTimer" parent="." index="7"]
-wait_time = 1.1

@@ -7,8 +7,8 @@ var highscore = 0
 
 
 func _ready():
+	$CharacterSelect.visible = false
 	load_highscore()
-	$Settings.visible = false
 	var s = str(highscore)
 	var n = 5 - s.length()
 	$TheBest.text = "The Best: "
@@ -28,16 +28,8 @@ func load_highscore():
 
 func _on_StartButton_pressed():
 	Global.score = 0
-	get_tree().change_scene("res://map/Game.tscn")
+	$CharacterSelect.visible = true
 
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
-
-
-func _on_SettingButton_pressed():
-	$Settings.visible = true
-
-
-func _on_BackButton_pressed():
-	$Settings.visible = false
