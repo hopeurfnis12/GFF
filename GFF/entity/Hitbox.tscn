@@ -6,4 +6,3 @@
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
-knockback_force = 150
