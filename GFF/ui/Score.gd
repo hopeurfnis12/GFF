@@ -2,7 +2,6 @@ extends Label
 
 
 func _ready():
-#	load_highscore()
 	pass
 
 

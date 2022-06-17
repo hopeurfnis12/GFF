@@ -206,9 +206,9 @@ __meta__ = {
 
 [node name="TheBest" type="Label" parent="."]
 anchor_left = 0.36
-anchor_top = 0.272
+anchor_top = 0.26
 anchor_right = 0.64
-anchor_bottom = 0.376
+anchor_bottom = 0.364
 custom_fonts/font = ExtResource( 4 )
 text = "The best: 00000"
 align = 1
@@ -219,32 +219,20 @@ __meta__ = {
 
 [node name="StartButton" type="Button" parent="."]
 anchor_left = 0.39125
-anchor_top = 0.432
+anchor_top = 0.448
 anchor_right = 0.60875
-anchor_bottom = 0.504
+anchor_bottom = 0.52
 custom_fonts/font = ExtResource( 2 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SettingButton" type="Button" parent="."]
-anchor_left = 0.39125
-anchor_top = 0.552
-anchor_right = 0.60875
-anchor_bottom = 0.624
-custom_fonts/font = ExtResource( 2 )
-disabled = true
-text = "Setting"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="QuitButton" type="Button" parent="."]
 anchor_left = 0.39125
-anchor_top = 0.672
+anchor_top = 0.58
 anchor_right = 0.60875
-anchor_bottom = 0.744
+anchor_bottom = 0.652
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 __meta__ = {

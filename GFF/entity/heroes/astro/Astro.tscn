@@ -35,14 +35,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "move",
 "speed": 5.0
 } ]
 

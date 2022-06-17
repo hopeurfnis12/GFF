@@ -14,6 +14,7 @@ onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
 var mov_direction: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
+
 onready var invincible_timer = $InvincibleTimer
 
 
